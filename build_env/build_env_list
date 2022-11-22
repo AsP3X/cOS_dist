@@ -6,7 +6,6 @@ https://ftp.gnu.org/gnu/m4/m4-1.4.19.tar.xz
 https://ftp.gnu.org/gnu/make/make-4.3.tar.gz
 https://invisible-mirror.net/archives/ncurses/ncurses-6.3.tar.gz
 https://ftp.gnu.org/gnu/bash/bash-5.1.16.tar.gz
-https://www.linuxfromscratch.org/patches/lfs/11.2/coreutils-9.1-i18n-1.patch
 https://ftp.gnu.org/gnu/coreutils/coreutils-9.1.tar.xz
 https://ftp.gnu.org/gnu/diffutils/diffutils-3.8.tar.xz
 https://astron.com/pub/file/file-5.42.tar.gz
@@ -27,9 +26,11 @@ https://www.kernel.org/pub/linux/utils/util-linux/v2.38/util-linux-2.38.1.tar.xz
 https://ftp.gnu.org/gnu/mpc/mpc-1.2.1.tar.gz
 https://ftp.gnu.org/gnu/mpfr/mpfr-4.1.0.tar.xz
 https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz
-https://www.linuxfromscratch.org/patches/lfs/11.2/glibc-2.36-fhs-1.patch
 https://sqlite.org/2022/sqlite-autoconf-3400000.tar.gz
 https://curl.se/download/curl-7.86.0.tar.xz
 https://github.com/yaml/libyaml/releases/download/0.2.5/yaml-0.2.5.tar.gz
 https://ftp.gnu.org/gnu/autoconf/autoconf-2.71.tar.xz
 https://ftp.gnu.org/gnu/automake/automake-1.16.5.tar.xz
+
+https://www.linuxfromscratch.org/patches/lfs/11.2/coreutils-9.1-i18n-1.patch
+https://www.linuxfromscratch.org/patches/lfs/11.2/glibc-2.36-fhs-1.patch
