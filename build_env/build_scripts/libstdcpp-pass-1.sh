@@ -1,11 +1,5 @@
-echo 
-echo "libstdcpp Pass 1"
-echo
-sleep 1
-
-cd $LFS/sources
-tar -xf gcc-12.2.0.tar.xz
-cd gcc-12.2.0
+BUILD_ARCHIVE=gcc-12.2.0.tar.xz
+. $DIST_ROOT/build_env/build_scripts/inc-start.sh $BUILD_ARCHIVE
 
 mkdir -v build
 cd       build
@@ -22,5 +16,4 @@ cd       build
 make
 make DESTDIR=$LFS install
 
-cd $LFS/sources
-rm -rf gcc-12.2.0
+. $DIST_ROOT/build_env/build_scripts/inc-end.sh $BUILD_ARCHIVE
