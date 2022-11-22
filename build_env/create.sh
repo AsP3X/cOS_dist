@@ -1,3 +1,4 @@
+set -e
 echo "Dist Root: ${DIST_ROOT:?}"
 echo "LFS: ${LFS:?}"
 
@@ -7,3 +8,7 @@ if ! test $(whoami) == "cbuild" ; then
 fi
 
 echo "Creating build environment..."
+cd $DIST_ROOT/build_env
+
+bash -e build_scripts/binutils-pass-1.sh
+bash -e build_scripts/gcc-pass-1.sh
