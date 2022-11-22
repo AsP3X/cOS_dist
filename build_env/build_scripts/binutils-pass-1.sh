@@ -1,6 +1,5 @@
-cd $LFS/sources
-tar -xf binutils-2.39.tar.xz
-cd binutils-2.39
+BUILD_ARCHIVE=binutils-2.39.tar.xz
+. $DIST_ROOT/build_env/build_scripts/inc-start.sh $BUILD_ARCHIVE
 
 mkdir -v build
 cd build
@@ -13,5 +12,4 @@ cd build
 
 make && make install
 
-cd $LFS/sources
-rm -rf binutils-2.39
+. $DIST_ROOT/build_env/build_scripts/inc-end.sh $BUILD_ARCHIVE
