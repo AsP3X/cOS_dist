@@ -1,11 +1,5 @@
-echo 
-echo "Linux Headers"
-echo
-sleep 1
-
-cd $LFS/sources
-tar -xf linux-5.19.2.tar.xz
-cd linux-5.19.2
+BUILD_ARCHIVE=linux-5.19.2.tar.xz
+. $DIST_ROOT/build_env/build_scripts/inc-start.sh $BUILD_ARCHIVE
 
 make mrproper
 
@@ -14,5 +8,4 @@ find usr/include -name '.*' -delete
 rm usr/include/Makefile
 cp -rv usr/include $LFS/usr
 
-cd $LFS/sources
-rm -rf linux-5.19.2
+. $DIST_ROOT/build_env/build_scripts/inc-end.sh $BUILD_ARCHIVE
