@@ -1,11 +1,5 @@
-echo 
-echo "Glibc"
-echo
-sleep 1
-
-cd $LFS/sources
-tar -xf glibc-2.36.tar.xz
-cd glibc-2.36
+BUILD_ARCHIVE=glibc-2.36.tar.xz
+. $DIST_ROOT/build_env/build_scripts/inc-start.sh $BUILD_ARCHIVE
 
 case $(uname -m) in
     i?86)   ln -sfv ld-linux.so.2 $LFS/lib/ld-lsb.so.3
@@ -45,5 +39,4 @@ sleep 1
 
 $LFS/tools/libexec/gcc/$LFS_TGT/12.2.0/install-tools/mkheaders
 
-cd $LFS/sources
-rm -rf glibc-2.36
+. $DIST_ROOT/build_env/build_scripts/inc-end.sh $BUILD_ARCHIVE
