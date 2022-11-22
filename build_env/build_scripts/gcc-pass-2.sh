@@ -8,38 +8,38 @@ mv -v gmp-6.2.1 gmp
 tar -xf ../mpc-1.2.1.tar.gz
 mv -v mpc-1.2.1 mpc
 
-sed -e '/m64=/s/lib64/lib/' \
-        -i.orig gcc/config/i386/t-linux64
+case $(uname -m) in
+  x86_64)
+    sed -e '/m64=/s/lib64/lib/' -i.orig gcc/config/i386/t-linux64
+  ;;
+esac
+
+sed '/thread_header =/s/@.*@/gthr-posix.h/' \
+    -i libgcc/Makefile.in libstdc++-v3/include/Makefile.in
 
 mkdir -v build
 cd       build
 
 ../configure                                       \
+    --build=$(../config.guess)                     \
+    --host=$LFS_TGT                                \
     --target=$LFS_TGT                              \
-    --prefix=$LFS/tools                            \
-    --with-glibc-version=2.11                      \
-    --with-sysroot=$LFS                            \
-    --with-newlib                                  \
-    --without-headers                              \
+    LDFLAGS_FOR_TARGET=-L$PWD/$LFS_TGT/libgcc      \
+    --prefix=/usr                                  \
+    --with-build-sysroot=$LFS                      \
     --enable-initfini-array                        \
     --disable-nls                                  \
-    --disable-shared                               \
     --disable-multilib                             \
     --disable-decimal-float                        \
-    --disable-threads                              \
     --disable-libatomic                            \
     --disable-libgomp                              \
     --disable-libquadmath                          \
     --disable-libssp                               \
     --disable-libvtv                               \
-    --disable-libstdcxx                            \
     --enable-languages=c,c++
 
 make
-make install
-
-cd ..
-cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
-  `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/install-tools/include/limits.h
+make DESTDIR=$LFS install
+ln -sv gcc $LFS/usr/bin/cc
 
 . $DIST_ROOT/build_env/build_scripts/inc-end.sh $BUILD_ARCHIVE
