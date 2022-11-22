@@ -31,6 +31,5 @@ https://curl.se/download/curl-7.86.0.tar.xz
 https://github.com/yaml/libyaml/releases/download/0.2.5/yaml-0.2.5.tar.gz
 https://ftp.gnu.org/gnu/autoconf/autoconf-2.71.tar.xz
 https://ftp.gnu.org/gnu/automake/automake-1.16.5.tar.xz
-
 https://www.linuxfromscratch.org/patches/lfs/11.2/coreutils-9.1-i18n-1.patch
 https://www.linuxfromscratch.org/patches/lfs/11.2/glibc-2.36-fhs-1.patch
